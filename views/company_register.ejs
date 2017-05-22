@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+
+
+<body>
+<% include templates/header.ejs %>
+  
+  <div style="color:#e20d0d">
+  <% if(company) {%>
+    <h2> <%= company %> </h2>
+  <%}%>
+  <% if(registration) {%>
+  <h2> <%= registration %> </h2>
+<%}%>
+  </div>
+  <div class="register">
+  <h1>Register</h1>
+    <form action="http://127.0.0.1:3000/myaction4" method="post">
+    	<input type="text" name="c" placeholder="Company" required="required" > <br>
+    	<input type="text" name="d" placeholder="Designation" required="required" > <br>
+    	<input type="text" name="pa" placeholder="Package" required="required" > <br>
+    	<input type="text" name="l" placeholder="location" required="required" > <br>
+        <input type="password" name="p" placeholder="Password" required="required" > <br>
+        <button style="color:white; background-color:green;" type="submit"> Register </button>
+    </form>
+</div>
+  
+    
+
+</body>
+</html>

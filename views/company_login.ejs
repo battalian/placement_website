@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+
+
+<body>
+<% include templates/header.ejs %>
+<% if(company) {%>
+	<h2> <%= company%> </h2>
+<%}%>
+<% if(password) {%>
+	<h2> <%= password %> </h2>
+<%}%>
+
+  <div class="login">
+	<h1>Login</h1>
+    <form action="http://127.0.0.1:3000/myaction" method="post">
+    	<input type="text" name="u" placeholder="Company" required="required" > <br>
+        <input type="password" name="p" placeholder="Password" required="required" > <br>
+        <button type="submit" >Login</button>
+    </form>
+</div>
+  
+    
+
+</body>
+</html>

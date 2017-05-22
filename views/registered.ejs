@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<style>
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+
+</head>
+<body>
+
+<ul>
+  <li><a href="http://127.0.0.1:3000/edit_details">Edit Details</a></li>
+  <li style="float:right"> <a href="http://127.0.0.1:3000/student_logout">Logout</a></li>
+</ul>
+
+<table>
+
+  <tr>
+    <th>Company</th>
+    <th>Designation</th>
+    <th>Package</th>
+    <th>Status</th>
+  </tr>
+  
+  
+<% for(var i=0; i<data.length; i++) {%>
+<% var company_name = data[i].company %>
+
+	<tr> 
+	<td><%= data[i].company %></td>
+	<td><%= data[i].designation %></td>
+	<td><%= data[i].package %></td>
+	
+	<% if(st_data.hasOwnProperty(company_name)) {%> 
+    <% } %> <% if(!st_data.hasOwnProperty(company_name)) {%> <% } %>
+	
+	<td>
+	<% if(!st_data.hasOwnProperty(company_name)) {%>
+	<form action="http://127.0.0.1:3000/update_registrations" method="post">
+		<input type="hidden" name="company_name"  value= <%= company_name %>  >
+    	<button type="submit" style="color:white; background-color:green;" >Register </button>
+    </form>
+    <% } %>
+    
+    <% if(st_data.hasOwnProperty(company_name)) {%>
+    	<% if(st_data[company_name] == 1) {%>
+	<form action="http://127.0.0.1:3000/update_registrations" method="post">
+		<input type="hidden" name="company_name"  value= <%= company_name %>  >
+    	<button type="submit" style="color:white; background-color:red;" >Unregister </button>
+    </form>
+    <% }%>
+
+    <% if(st_data[company_name]==2) {%>
+	<form action="http://127.0.0.1:3000/update_registrations" method="post">
+		<input type="hidden" name="company_name" value= <%= company_name %>  >
+    	<button type="submit" style="color:white; background-color:green;" >Register </button>
+    </form>
+    <% } %>
+
+    <% } %>
+    </td>
+    
+
+    
+	</tr>
+	
+<% } %>
+  
+
+  
+</table>
+
+</body>
+</html>
