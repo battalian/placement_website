@@ -52,8 +52,8 @@ li a:hover {
 <body>
 
 <ul>
-  <li><a href="http://127.0.0.1:3000/edit_details">Edit Details</a></li>
-  <li style="float:right"> <a href="http://127.0.0.1:3000/student_logout">Logout</a></li>
+  <li><a href="http://35.176.103.229:3000/edit_details">Edit Details</a></li>
+  <li style="float:right"> <a href="http://35.176.103.229:3000/student_logout">Logout</a></li>
 </ul>
 
 <table>
@@ -79,7 +79,7 @@ li a:hover {
 	
 	<td>
 	<% if(!st_data.hasOwnProperty(company_name)) {%>
-	<form action="http://127.0.0.1:3000/update_registrations" method="post">
+	<form action="http://35.176.103.229:3000/update_registrations" method="post">
 		<input type="hidden" name="company_name"  value= <%= company_name %>  >
     	<button type="submit" style="color:white; background-color:green;" >Register </button>
     </form>
@@ -87,14 +87,14 @@ li a:hover {
     
     <% if(st_data.hasOwnProperty(company_name)) {%>
     	<% if(st_data[company_name] == 1) {%>
-	<form action="http://127.0.0.1:3000/update_registrations" method="post">
+	<form action="http://35.176.103.229:3000/update_registrations" method="post">
 		<input type="hidden" name="company_name"  value= <%= company_name %>  >
     	<button type="submit" style="color:white; background-color:red;" >Unregister </button>
     </form>
     <% }%>
 
     <% if(st_data[company_name]==2) {%>
-	<form action="http://127.0.0.1:3000/update_registrations" method="post">
+	<form action="http://35.176.103.229:3000/update_registrations" method="post">
 		<input type="hidden" name="company_name" value= <%= company_name %>  >
     	<button type="submit" style="color:white; background-color:green;" >Register </button>
     </form>
